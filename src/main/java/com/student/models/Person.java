@@ -33,8 +33,8 @@ public class Person {
 	@Column(name = "email")
 	private String email;
 	
-	@Column(name = "photo")
-	private String photo;
+	@Column(name = "phone")
+	private String phone;
 	
 	
 	
@@ -48,13 +48,13 @@ public class Person {
 
 
     // Constructor//
-	public Person(Integer id, String fname, String lname, String email, String photo, Set<Course> likedCourses) {
+	public Person(Integer id, String fname, String lname, String email, String phone, Set<Course> likedCourses) {
 		super();
 		this.id = id;
 		this.fname = fname;
 		this.lname = lname;
 		this.email = email;
-		this.photo = photo;
+		this.phone = phone;
 		this.likedCourses = likedCourses;
 	}
 
@@ -108,14 +108,14 @@ public class Person {
 
 
 
-	public String getPhoto() {
-		return photo;
+	public String getphone() {
+		return phone;
 	}
 
 
 
-	public void setPhoto(String photo) {
-		this.photo = photo;
+	public void setphone(String phone) {
+		this.phone = phone;
 	}
 
 
@@ -134,7 +134,7 @@ public class Person {
 	 //  toString Method //
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", fname=" + fname + ", lname=" + lname + ", email=" + email + ", photo=" + photo
+		return "Person [id=" + id + ", fname=" + fname + ", lname=" + lname + ", email=" + email + ", phone=" + phone
 				+ ", likedCourses=" + likedCourses + "]";
 	}
 	  
