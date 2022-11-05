@@ -4,6 +4,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,7 +41,7 @@ public class Person {
 	
 	
 	
-	 @ManyToMany
+	 @ManyToMany(fetch = FetchType.LAZY)
 	 @JsonIgnore 
 	 @JoinTable(
 			 name = "person_course",
@@ -55,6 +56,7 @@ public class Person {
 	}
 
 	// Constructor//
+
 	public Person(Integer id, String fname, String lname, String email, String phone, Set<Course> likedCourses) {
 		super();
 		this.id = id;
@@ -64,14 +66,11 @@ public class Person {
 		this.phone = phone;
 		this.likedCourses = likedCourses;
 	}
-
     // getters and setters //
 
 	public Integer getId() {
 		return id;
 	}
-
-
 
 	public void setId(Integer id) {
 		this.id = id;
@@ -90,6 +89,14 @@ public class Person {
 	}
 
 
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
 	public String getLname() {
 		return lname;
@@ -115,18 +122,6 @@ public class Person {
 
 
 
-	public String getphone() {
-		return phone;
-	}
-
-
-
-	public void setphone(String phone) {
-		this.phone = phone;
-	}
-
-
-
 	public Set<Course> getLikedCourses() {
 		return likedCourses;
 	}
@@ -141,7 +136,7 @@ public class Person {
 	 //  toString Method //
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", fname=" + fname + ", lname=" + lname + ", email=" + email + ", phone=" + phone
+		return "Person [id=" + id + ", fname=" + fname + ", lname=" + lname + ", email=" + email 
 				+ ", likedCourses=" + likedCourses + "]";
 	}
 	  

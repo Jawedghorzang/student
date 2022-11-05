@@ -9,33 +9,17 @@
     <script src='main.js'></script>
   </head>
   <body>
-      <h1 style="background-color: yellow;color:black;font-family: arial;text-align:center;border-radius: 4px;"> Change A person Field </h1>
-
-        <div>
-          <h3> Change Person</h3>
-          <p th:text = "${success}"></p>
-      <form action="api/v1/person/" >
-          <input type="text" name="id" th:value="${person.id}"><br>
-          <input type="text" name="fname" th:value="${person.fname}"><br>
-          <input type="text" name="lname" th:value="${person.lname}"><br>
-          <input type="email" name="email" th:value="${person.email}"><br>
-          <input type="phone" name="phone" th:value="${person.phone}"><br>
-
-          <input type="submit" value="Submit">
-      </form>
-       </div>
+      <h1 style="background-color: yellow;color:black;font-family: arial;text-align:center;border-radius: 4px;"> Update Person </h1>
        
-         <div>
-            <h3> Update Person </h3>
-      <form action="api/v1/person" method="PUT">
-          <input type="text" name="fname" placeholder="First Name"><br>
-          <input type="text" name="lname" placeholder="Last Name"><br>
-          <input type="email" name="email" placeholder="Email"><br>
-          <input type="phone" name="phone" placeholder="Phone Number"><br>
-
-          <input type="submit" value="Submit">
-      </form>
-       </div>
+       
+          <form action="api/v1/person" method="GET">
+              <input type="text" name="id" >
+              <input typ="submit" value="Submit">
+          
+          </form>
+  
+       
+  
 
   </body>
   </html>
