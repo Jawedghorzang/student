@@ -3,6 +3,7 @@ package com.student.models;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,7 +21,7 @@ public class Course {
 	private Integer id;
 	 
 	/* Many To Many Relationship between  COURSE table and PERSON*/
-	@ManyToMany(mappedBy = "likedCourses")
+	@ManyToMany(fetch = FetchType.EAGER,mappedBy = "likedCourses")
 	Set<Person>  likes;
 	
 	/* One To Many Relationship between COURSE table and SESSION*/

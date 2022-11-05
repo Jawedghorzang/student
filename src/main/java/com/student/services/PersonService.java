@@ -1,5 +1,8 @@
 package com.student.services;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +18,15 @@ public class PersonService {
 	
 	public void save(Person person) {
 		personRep.save(person);
+	}
+
+
+	public Optional<Person> findById(Integer id) {
+		return   personRep.findById(id);
+	}
+	
+	public List<Person> getAll(){
+	return	personRep.findAll();
 	}
 
 }

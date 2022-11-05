@@ -12,6 +12,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name =  "PERSON")
 public class Person {
@@ -39,6 +41,7 @@ public class Person {
 	
 	
 	 @ManyToMany
+	 @JsonIgnore 
 	 @JoinTable(
 			 name = "person_course",
 			 joinColumns = @JoinColumn(name = "student_id"),
@@ -47,7 +50,11 @@ public class Person {
 	 Set<Course> likedCourses;
 
 
-    // Constructor//
+    public Person() {
+		super();
+	}
+
+	// Constructor//
 	public Person(Integer id, String fname, String lname, String email, String phone, Set<Course> likedCourses) {
 		super();
 		this.id = id;
