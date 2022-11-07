@@ -1,5 +1,6 @@
 package com.student.models;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -48,7 +49,7 @@ public class Person {
 			 joinColumns = @JoinColumn(name = "student_id"),
 			 inverseJoinColumns = @JoinColumn(name = "course_id"))
 	 
-	 Set<Course> likedCourses;
+	 Set<Course> likedCourses = new HashSet<>();
 
 
     public Person() {
@@ -56,7 +57,6 @@ public class Person {
 	}
 
 	// Constructor//
-
 	public Person(Integer id, String fname, String lname, String email, String phone, Set<Course> likedCourses) {
 		super();
 		this.id = id;

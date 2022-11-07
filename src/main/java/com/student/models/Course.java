@@ -1,5 +1,6 @@
 package com.student.models;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -11,29 +12,38 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "COURSE")
 public class Course {
-	
+	 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	 
 	/* Many To Many Relationship between  COURSE table and PERSON*/
 	@ManyToMany(fetch = FetchType.EAGER,mappedBy = "likedCourses")
-	Set<Person>  likes;
-	
+	@JsonIgnore
+	Set<Person>  likes = new HashSet<>();
 	/* One To Many Relationship between COURSE table and SESSION*/
 	@OneToMany(mappedBy = "course")
+	@JsonIgnore
 	Set<Session> session; 
+	
 	
 	
 	private String name;
 	private String description;
 	private String study_points;
 	
-	 /* Constructor */
+	
+	 public Course() {
+		super();
+	}
+
+	/* Constructor */
 	public Course(Integer id, Set<Person> likes, Set<Session> session, String name, String description,
 			String study_points) {
 		super();

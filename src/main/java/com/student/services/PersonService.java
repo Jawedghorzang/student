@@ -38,4 +38,10 @@ public class PersonService {
 		return personRep.findAll(page);
 	}
 
+
+	public List<Person> findAll() {
+	
+		return personRep.findAll();
+	}
+
 }

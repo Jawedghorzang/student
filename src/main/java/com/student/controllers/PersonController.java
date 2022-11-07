@@ -1,7 +1,8 @@
 package com.student.controllers;
 
 
-import java.lang.StackWalker.Option;
+
+
 import java.util.List;
 import java.util.Optional;
 
@@ -12,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,12 +53,13 @@ public class PersonController {
 	@RequestMapping(value = "api/v1/person/{id}",method=RequestMethod.GET)
 	@ResponseBody
 	public Optional<Person>  getById(@PathVariable Integer id,Model model ){
-	Person getPerson = personService.findById(id).orElse(null);
+	Person getPerson = personService.findById(id).orElse(null); 
 	model.addAttribute("person",getPerson);
+	System.out.println(getPerson.getEmail());
 	 return personService.findById(id);
 }
 	
-	
+	// Pagination //
 	@GetMapping("/api/v1/person")
 	@ResponseBody
 	 public Page<Person> getPerson(@RequestParam int pageSize,@RequestParam int pageNumber){
@@ -66,7 +67,13 @@ public class PersonController {
 		return personService.getPersons(pageNumber, pageSize);
 	}
 	
-
+    // Get all persons //
+	@GetMapping("/api/v1/person/getAll")
+	@ResponseBody
+	 public List<Person> getAllPerson(){
+		return personService.findAll();
+	}
+	
 	
 	
 	
