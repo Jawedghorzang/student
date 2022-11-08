@@ -41,9 +41,8 @@ public class Person {
 	private String phone;
 	
 	
-	
-	 @ManyToMany(fetch = FetchType.LAZY)
 	 @JsonIgnore 
+	 @ManyToMany(fetch = FetchType.LAZY)
 	 @JoinTable(
 			 name = "person_course",
 			 joinColumns = @JoinColumn(name = "student_id"),
@@ -121,7 +120,7 @@ public class Person {
 	}
 
 
-
+	@JsonIgnore
 	public Set<Course> getLikedCourses() {
 		return likedCourses;
 	}

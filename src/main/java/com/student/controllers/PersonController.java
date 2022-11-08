@@ -74,6 +74,14 @@ public class PersonController {
 		return personService.findAll();
 	}
 	
+	// Register a Person for a course //
+	
+	@GetMapping("api/v1/{course_id}/person/{person_id}")
+	@ResponseBody
+	public Person registerPersonForCourse(@PathVariable Integer course_id,@PathVariable Integer person_id) {
+		
+	 return	personService.savePersonForCourse(course_id,person_id);
+	}
 	
 	
 	

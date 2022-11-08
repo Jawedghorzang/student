@@ -28,14 +28,6 @@ public class CourseController {
 	}
 	
 	
-	// Register a Person for a course //
-	
-	@PostMapping("api/v1/{course_id}/person/{person_id}")
-	public String registerPersonForCourse(@PathVariable Integer course_id,@PathVariable Integer person_id) {
-		
-		
-		return "index";
-	}
 	
 	@GetMapping("api/v1/course/{id}")
 	@ResponseBody

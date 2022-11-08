@@ -24,12 +24,12 @@ public class Course {
 	private Integer id;
 	 
 	/* Many To Many Relationship between  COURSE table and PERSON*/
-	@ManyToMany(fetch = FetchType.EAGER,mappedBy = "likedCourses")
 	@JsonIgnore
+	@ManyToMany(fetch = FetchType.EAGER,mappedBy = "likedCourses")
 	Set<Person>  likes = new HashSet<>();
 	/* One To Many Relationship between COURSE table and SESSION*/
-	@OneToMany(mappedBy = "course")
 	@JsonIgnore
+	@OneToMany(mappedBy = "course")
 	Set<Session> session; 
 	
 	
@@ -69,10 +69,11 @@ public class Course {
 		return likes;
 	}
 
+
 	public void setLikes(Set<Person> likes) {
 		this.likes = likes;
 	}
-
+	
 	public Set<Session> getSession() {
 		return session;
 	}
